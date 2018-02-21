@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="task1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body class="my-center">
+    <div class="container" ng-controller="myCtr">
+        <form action="">
+            <input type="text" class="form-group col-xl-5" ng-model="search" placeholder="Search">
+            <input type="text" class="form-group col-xl-2" ng-model="limit" placeholder="Limit Rows">
+            <input type="text"  ng-model="order" placeholder="Order By  [ name / id / job / sal / gen (prefix - for Descending) ]" size="48.5">
+
+        </form>
+    <table class="table table-bordered table-hover" >
+        <thead class="thead-dark">
+        <tr>
+        
+                    <th>Emp Name</th>
+                    <th>Emp ID</th>
+                    <th>Job</t>
+                    <th>Salary</th>
+                    <th>Gender</th>
+                    <th>Photo</th>
+            
+        </tr>
+    </thead>
+        <tr ng-repeat="s in emp | filter:search | limitTo:limit | orderBy:order" class="active">
+            <td>{{s.name}}</td>
+            <td>{{s.id}}</td>
+            <td>{{s.job}}</td>
+            <td>{{s.sal}}</td>
+            <td>{{s.gen}}</td>
+            <td><img ng-src="{{s.pic}}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
