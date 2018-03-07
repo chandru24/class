@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Form</title>
+   
+    <link rel="stylesheet" href="myStyle.css">
+    
+</head>
+<body>
+    <div class="header">
+                
+        <ul id="menu">  
+            <img src="gitlogo.png" alt="image">
+            <li>Contact</li>
+            <li>About</li>
+            <li>Home</li>
+         </ul>
+         </div>
+ 
+    <div class="container">  
+        <form id="contact" name="myForm" onsubmit="addTicket()" action="" method="post">
+          <h3 align="center">Book Ticket</h3>
+
+          <fieldset>
+            <input placeholder="Your name" type="text" id="name" minlength="5" required autofocus>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Your Phone Number" type="tel" id="pno" minlength="10" maxlength="10" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Your Email Address" type="email" id="mail" required>
+          </fieldset>
+          <fieldset>Ticket Class:     
+            <input type="radio" id="gold" name="class" value="Gold" onclick="writeResult('300');">Gold
+            <input type="radio" id="silver" name="class" value="Silver" onclick="writeResult('200');">Silver
+         </fieldset>
+          <fieldset>
+                <input placeholder="Total Price" type="text" name="testResultDescrition" id="testResultDescription">
+              </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" onclick="myFunction()">Submit</button>
+          </fieldset>
+         </form>
+      </div>
+      <script type="text/javascript">
+                
+                function writeResult(text){
+                    document.myForm.testResultDescription.value = text;
+                }
+
+                function myFunction() {
+                     var txt;
+                     var cname=document.getElementById("name").value;
+                     var cpno=document.getElementById("pno").value;
+                     var cmail=document.getElementById("mail").value;
+
+                     if (document.getElementById('gold').checked) {
+                         ticket_value = document.getElementById('gold').value;
+                    }
+                    else if(document.getElementById('silver').checked) {
+                         ticket_value = document.getElementById('silver').value;
+
+                    }           
+
+                    var amount=document.getElementById("testResultDescription").value;
+
+                    var r = confirm("Please Confirm your ticket!\n\nName: "+cname+"\nPhone: "+cpno+"\nEmail: "+cmail+"\nTicket Class: "+ticket_value+"\nAmount: "+amount);
+                    if (r == true) {
+                    txt = "Your Ticket is Confirmed!\n          Thank You.";
+                    } else {
+                        txt = "Your Ticket is Canceld!\n           Thank You.";
+                         }
+                    alert(txt);
+                }
+                
+                </script>
+  
+</body>
+</html>

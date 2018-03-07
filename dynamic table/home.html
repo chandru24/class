@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body class="my-center" ng-controller="myCtr">
+<form name="myForm" ng-submit="addData()">
+    <label>
+    <input type="text" class="form-group" name="name" ng-model="name" placeholder="Enter name"/><br>
+</label>
+<label>
+    <input type="text" class="form-group" name="job" ng-model="job" placeholder="Job"><br>
+</label>
+<label>
+    <input type="tel" class="form-group" name="sal" ng-model="sal" placeholder="Salary"><br>
+</label>
+<label>
+    <input type="tel" class="form-group" name="pno" ng-model="pno" placeholder="Phone Number" maxlength="10">
+</label>
+<!-- <label>
+        <input type="file" class="form-group" name="pic" ng-model="pic" placeholder="Choose image">
+    </label> -->
+<input type="submit" class="form-group" value="Add Data">
+</form>
+
+    <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+        <tr>
+            <th>Emp Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Phone Num</th>
+            <!-- <th>Image</th> -->
+            <th>Remove</th>
+            
+        </tr>
+        </thead>
+        <tr ng-repeat="d in myData">
+            <td>{{d.name}}</td>
+            <td>{{d.job}}</td>
+            <td>{{d.sal}}</td>
+            <td>{{d.pno}}</td>
+            <!-- <td><img ng-src="pics/{{d.pic}}"></td> -->
+            <td><a href="" ng-click="removeData($index)">Remove</a></td>
+        </tr>
+
+    </table>
+</body>
+</html>
